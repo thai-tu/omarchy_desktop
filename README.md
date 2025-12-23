@@ -1,2 +1,2 @@
 # omarchy_desktop
-Omarchy Git for Desktop
+Omarchy Git for Desktop Computer
