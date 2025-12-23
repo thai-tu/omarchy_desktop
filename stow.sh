@@ -1,0 +1,1 @@
+stow -d ~/Projects/omarchy_desktop/ -t ~/ dotfiles
