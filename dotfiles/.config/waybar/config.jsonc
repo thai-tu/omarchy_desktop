@@ -224,7 +224,7 @@
     "format": "{icon}  {volume}%",
     "on-click": "omarchy-launch-or-focus-tui wiremix",
     "on-click-right": "pamixer -t",
-    "tooltip-format": "Playing at {volume}%",
+    "tooltip-format": "{source_desc}",
     "scroll-step": 5,
     "format-muted": "  {volume}%",
     "format-icons": {
