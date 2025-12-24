@@ -133,7 +133,7 @@
     "cpu": {
     "interval": 2,
     "format": "󰍛 {usage}%",
-    "on-click": "omarchy-launch-or-focus-tui btop"
+    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Omarchy --title=Omarchy -e btop"
     },
 
     "memory": {
@@ -141,7 +141,7 @@
     "format": "   {used:.1f}G",
     "tooltip": true,
     "tooltip-format": "Used:\t{used:5.2f}GiB\nFree:\t{avail:5.2f}GiB\nTotal:\t{total:5.2f}GiB",
-    "on-click": "omarchy-launch-or-focus-tui btop"
+    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Omarchy --title=Omarchy -e btop"
     },
 
     "clock": {
@@ -262,7 +262,7 @@
     "format": " CPU {}°C",
     "warning-threshold": 75,
     "critical-threshold": 90,
-    "on-click": "omarchy-launch-or-focus-tui btop"
+    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Omarchy --title=Omarchy -e btop"
     },
     
     "temperature#gpu": {
@@ -271,6 +271,6 @@
     "format": "󰢮 GPU {temperatureC}°C",
     "warning-threshold": 80,
     "critical-threshold": 95,
-    "on-click": "omarchy-launch-or-focus-tui btop"
+    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Omarchy --title=Omarchy -e btop"
     }
 }
