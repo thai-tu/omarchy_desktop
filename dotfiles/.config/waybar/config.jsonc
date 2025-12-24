@@ -141,7 +141,7 @@
     "format": "   {used:.1f}G",
     "tooltip": true,
     "tooltip-format": "Used:\t{used:5.2f}GiB\nFree:\t{avail:5.2f}GiB\nTotal:\t{total:5.2f}GiB",
-    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Omarchy --title=Omarchy -e btop"
+    "on-click": "omarchy-launch-or-focus-tui btop"
     },
 
     "clock": {
@@ -187,7 +187,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "alacritty --class=Impala -e impala"
+    "on-click": "omarchy-launch-wifi"
     },
   
     "bluetooth": {
@@ -262,7 +262,7 @@
     "format": " CPU {}°C",
     "warning-threshold": 75,
     "critical-threshold": 90,
-    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Omarchy --title=Omarchy -e btop"
+    "on-click": "omarchy-launch-or-focus-tui btop"
     },
     
     "temperature#gpu": {
@@ -271,6 +271,6 @@
     "format": "󰢮 GPU {temperatureC}°C",
     "warning-threshold": 80,
     "critical-threshold": 95,
-    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Omarchy --title=Omarchy -e btop"
+    "on-click": "omarchy-launch-or-focus-tui btop"
     }
 }
