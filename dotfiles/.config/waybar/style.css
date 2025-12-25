@@ -20,7 +20,7 @@
 
 #left1{
   background-color: @base;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid alpha(@text, 0.15);
   margin-right: 8px;
 }
@@ -31,7 +31,7 @@
 
 #left3{
   background-color: @base;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid alpha(@text, 0.15);
   color: @subtle;
   margin-right: 8px;
@@ -42,20 +42,20 @@
 .modules-center {
   background-color: @base;
   border: 1px solid alpha(@text, 0.15);
-  border-radius: 8px;
+  border-radius: 0px;
   color: @foam;
 }
 
 #right1{
   background-color: @base;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid alpha(@text, 0.15);
 }
 
 #right2{
   margin-left: 8px;
   background-color: @base;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid alpha(@text, 0.15);
 }
 
@@ -74,7 +74,7 @@ window#waybar.empty #window {
 
 #mpris {
   background-color: @base;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid alpha(@text, 0.15);
   color: @love;
 }
@@ -89,7 +89,7 @@ tooltip {
 /* --- Workspaces --- */
 #workspaces {
   background-color: @base;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid alpha(@text, 0.15);
 }
 
