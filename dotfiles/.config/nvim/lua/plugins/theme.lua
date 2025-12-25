@@ -1,0 +1,1 @@
+/home/bao_desktop/.config/omarchy/current/theme/neovim.lua
