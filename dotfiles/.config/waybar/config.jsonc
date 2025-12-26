@@ -8,8 +8,8 @@
 
   // Margins
   "margin-top": 10,
-  "margin-left": 10,
-  "margin-right": 10,
+  "margin-left": 11,
+  "margin-right": 11,
   "margin-bottom": 0,
 
   // Module layout
@@ -56,9 +56,9 @@
       "pulseaudio#output",
       "pulseaudio#input",
       "network",
-      "memory",
       "temperature#gpu",
       "temperature",
+      "memory",
       "cpu"
     ]
   },
@@ -76,8 +76,10 @@
     },
     "persistent-workspaces": {
       "*": [1, 2, 3, 4, 5, 6]
-    }
-  },
+    },
+  "on-scroll-up": "hyprctl dispatch workspace e+1",
+  "on-scroll-down": "hyprctl dispatch workspace e-1"
+},
 
   "hyprland/window": {
     "format": "{title} - {class}",
