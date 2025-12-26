@@ -145,6 +145,10 @@ window#waybar.empty #window {
   padding-right: 11px;
 }
 
+#clock {
+  padding-right: 11px;
+}
+
 /* ----------------------------
    Workspaces
 ---------------------------- */
