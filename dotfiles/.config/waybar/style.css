@@ -108,7 +108,7 @@ window#waybar.empty #window {
 #idle_inhibitor,
 #custom-omarchy,
 #custom-screenrecording-indicator,
-#custom-updatespacman {
+#custom-updates_all {
   min-width: 16px;
   margin: 1px 3px 1px 3px;
   padding-left: 6px;
@@ -238,12 +238,20 @@ window#waybar.empty #window {
 }
 
 #idle_inhibitor {
-  margin-right: 0px;
-  margin-left: 0px;
+  margin-right: 1px;
+  margin-left: 4px;
+  color: @text;
 }
 
 #tray {
   color: @muted;
+}
+
+#custom-updates_all {
+  padding-right: 9px;
+  padding-left: 12px;
+  color:@text;
+  border-left: 1px solid alpha(@text, 0.15);
 }
 
 /* ----------------------------

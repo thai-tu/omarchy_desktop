@@ -33,7 +33,7 @@
     "modules": [
       "idle_inhibitor",
       "custom/screenrecording-indicator",
-      "custom/updatespacman",
+      "custom/updates_all",
       "custom/update"
     ]
   },
@@ -124,16 +124,16 @@
     "interval": 21600
   },
 
-  "custom/updatespacman": {
-    "format": "{}{icon}",
+  "custom/updates_all": {
+    "format": "󰏖  {text}",
+    "exec": "$HOME/.config/waybar/scripts/updates.sh",
+    "on-click": "$HOME/.config/waybar/scripts/update-system.sh",
     "return-type": "json",
-    "format-icons": {
-      "has-updates": " 󰏖",
-      "updated": ""
-    },
-    "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates --no-zero-output"
+    "signal": 8,
+    "interval": 300,
+    "tooltip": true
   },
+
 
   "custom/screenrecording-indicator": {
     "on-click": "omarchy-cmd-screenrecord",
