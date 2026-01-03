@@ -66,6 +66,7 @@
   // Modules
   "hyprland/workspaces": {
     "format": "{icon}",
+    "on-click": "activate",
     "format-icons": {
       "1": "一",
       "2": "二",
@@ -77,9 +78,9 @@
     "persistent-workspaces": {
       "*": [1, 2, 3, 4, 5, 6]
     },
-  "on-scroll-up": "hyprctl dispatch workspace e+1",
-  "on-scroll-down": "hyprctl dispatch workspace e-1"
-},
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
 
   "hyprland/window": {
     "format": "{title} - {class}",
@@ -134,11 +135,10 @@
     "tooltip": true
   },
 
-
   "custom/screenrecording-indicator": {
     "on-click": "omarchy-cmd-screenrecord",
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
-    "signal": 8,
+    "signal": 9,
     "return-type": "json"
   },
 
@@ -258,6 +258,7 @@
 
   "temperature": {
     "interval": 5,
+    // hwmon5 = k10temp (AMD CPU) - may change on kernel updates
     "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
     "format": " CPU {temperatureC}°C",
     "warning-threshold": 75,
@@ -267,6 +268,7 @@
 
   "temperature#gpu": {
     "interval": 5,
+    // hwmon4 = amdgpu - may change on kernel updates
     "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
     "format": "󰢮  GPU {temperatureC}°C",
     "warning-threshold": 80,

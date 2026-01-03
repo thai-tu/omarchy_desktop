@@ -3,3 +3,4 @@ if status is-interactive
     atuin init fish | source
     starship init fish | source
 end
+export PATH="$HOME/.local/bin:$PATH"

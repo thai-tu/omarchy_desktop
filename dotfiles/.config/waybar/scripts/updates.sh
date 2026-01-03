@@ -6,18 +6,21 @@ CACHE_DURATION=300
 check_updates() {
     local official=0
     local aur=0
-    
+
     # Check official repos
     if command -v checkupdates &> /dev/null; then
-        official=$(checkupdates 2>/dev/null | wc -l)
+        official=$(checkupdates 2>/dev/null | wc -l) || official=0
     fi
-    
-    # Check AUR
-    if command -v yay &> /dev/null; then
-        aur=$(yay -Qua 2>/dev/null | wc -l)
+
+    # Check AUR (prefer paru for Omarchy, fallback to yay)
+    if command -v paru &> /dev/null; then
+        aur=$(paru -Qua 2>/dev/null | wc -l) || aur=0
+    elif command -v yay &> /dev/null; then
+        aur=$(yay -Qua 2>/dev/null | wc -l) || aur=0
     fi
-    
-    echo "$((official + aur))"
+
+    # Return both values separated by colon
+    echo "$official:$aur"
 }
 
 # Use cache if valid
@@ -27,16 +30,21 @@ if [[ -f "$CACHE_FILE" ]]; then
         updates=$(cat "$CACHE_FILE")
     else
         updates=$(check_updates)
-        echo "$updates" > "$CACHE_FILE"
+        echo "$updates" > "${CACHE_FILE}.tmp" && mv "${CACHE_FILE}.tmp" "$CACHE_FILE"
     fi
 else
     updates=$(check_updates)
-    echo "$updates" > "$CACHE_FILE"
+    echo "$updates" > "${CACHE_FILE}.tmp" && mv "${CACHE_FILE}.tmp" "$CACHE_FILE"
 fi
 
-# Output JSON - always show the number
-if [[ "$updates" -gt 0 ]]; then
-    echo "{\"text\":\"$updates\",\"tooltip\":\"$updates update(s) available\",\"class\":\"pending\"}"
+# Parse updates (format: official:aur)
+IFS=':' read -r official aur <<< "$updates"
+total=$((official + aur))
+
+# Output JSON with detailed tooltip
+if [[ "$total" -gt 0 ]]; then
+    tooltip="Official: $official | AUR: $aur\nClick to update system"
+    echo "{\"text\":\"$total\",\"tooltip\":\"$tooltip\",\"class\":\"pending\"}"
 else
-    echo "{\"text\":\"0\",\"tooltip\":\"System up to date\",\"class\":\"updated\"}"
+    echo "{\"text\":\"0\",\"tooltip\":\"System up to date ✓\",\"class\":\"updated\"}"
 fi
