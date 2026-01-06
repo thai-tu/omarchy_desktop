@@ -22,54 +22,72 @@ window#waybar {
 }
 
 /* Hide center module area when Waybar is “empty” */
-window#waybar.empty #window,
-#waybar.empty .modules-center {
+window#waybar.empty #window {
   background: transparent;
+  background-color: transparent;
   border: none;
+  border-radius: 0;
+  color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+#waybar.empty .modules-center {
   opacity: 0;
 }
 
 /* ----------------------------
    Group containers
+   (these are the group module IDs in your config)
 ---------------------------- */
 
-/* Suggestion 1 & 2: Consolidated styles and rounded corners */
-#left1,
-#left3,
-#right1,
-#right2,
-.modules-center,
-#workspaces,
-#mpris {
+#left1 {
   background-color: @base;
+  border-radius: 0px;
   border: 1px solid alpha(@text, 0.15);
-  border-radius: 0px; /* Sharp corners */
+  margin-right: 8px;
 }
 
-/* Spacing between container groups */
-#left1,
-#left2,
-#left3 {
+#left2 {
   margin-right: 8px;
+}
+
+#left3 {
+  background-color: @base;
+  border-radius: 0px;
+  border: 1px solid alpha(@text, 0.15);
+  color: @subtle;
+  margin-right: 8px;
+}
+
+#left4 {
+  /* intentionally blank */
+}
+
+.modules-center {
+  background-color: @base;
+  border: 1px solid alpha(@text, 0.15);
+  border-radius: 0px;
+  color: @foam;
+}
+
+#right1 {
+  background-color: @base;
+  border-radius: 0px;
+  border: 1px solid alpha(@text, 0.15);
 }
 
 #right2 {
   margin-left: 8px;
-}
-
-/* Assign colors to the containers that need them */
-.modules-center {
-  color: @foam;
-}
-#left3 {
-  color: @subtle;
+  background-color: @base;
+  border-radius: 0px;
+  border: 1px solid alpha(@text, 0.15);
 }
 
 /* ----------------------------
    General module sizing
 ---------------------------- */
 
-/* Suggestion 2: Simplified padding */
 #tray,
 #window,
 #mpris,
@@ -91,54 +109,109 @@ window#waybar.empty #window,
 #custom-omarchy,
 #custom-screenrecording-indicator,
 #custom-updates_all {
-  margin: 1px 3px;
-  padding: 0px 8px; /* Consistent horizontal padding */
+  min-width: 16px;
+  margin: 1px 3px 1px 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/* ----------------------------
+   Padding adjustments
+---------------------------- */
+
+#mpris {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#cpu {
+  padding-right: 10px;
+}
+
+#idle_inhibitor {
+  padding-right: 9px;
+}
+
+#workspaces {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+#bluetooth {
+  padding-right: 9px;
+}
+
+#network {
+  padding-right: 11px;
+}
+
+#clock {
+  padding-right: 11px;
 }
 
 /* ----------------------------
    Workspaces
 ---------------------------- */
 
+#workspaces {
+  background-color: @base;
+  border-radius: 0px;
+  border: 1px solid alpha(@text, 0.15);
+}
+
 #workspaces button {
-  padding: 4px;
-  border-radius: 0px; /* Sharp corners */
+  padding: 3px;
+  border-radius: 2px;
   background-color: transparent;
   color: @text;
-  transition: all 0.2s ease-in-out;
+  opacity: 1;
 }
 
 #workspaces button.active {
   color: @love;
-  background-color: @highlightMed;
+  opacity: 1;
 }
 
 #workspaces button.empty {
   color: alpha(@text, 0.4);
+  opacity: 0.45;
+  transition: all 0.15s ease-in-out;
 }
 
 #workspaces button.empty.active {
-  background-color: transparent;
   color: @love;
 }
 
 /* ----------------------------
-   Module colors
+   Module colors and separators
 ---------------------------- */
 
 #custom-omarchy {
+  border-radius: 0;
+  border-right: 1px solid alpha(@text, 0.15);
   color: @gold;
   font-size: 14px;
 }
 
 #clock {
+  border-radius: 0;
+  border-right: 1px solid alpha(@text, 0.15);
   color: @gold;
 }
 
+#network {
+  border-right: 1px solid alpha(@text, 0.15);
+}
+
 #bluetooth {
+  border-radius: 0;
+  border-right: 1px solid alpha(@text, 0.15);
   color: @foam;
 }
 
 #memory {
+  border-radius: 0;
+  border-left: 1px solid alpha(@text, 0.15);
   color: @gold;
 }
 
@@ -178,12 +251,7 @@ window#waybar.empty #window,
   padding-right: 9px;
   padding-left: 12px;
   color: @text;
-}
-
-/* Specific padding for bluetooth module */
-#bluetooth {
-  padding-left: 6px;
-  padding-right: 9px;
+  border-left: 1px solid alpha(@text, 0.15);
 }
 
 /* ----------------------------
@@ -191,6 +259,9 @@ window#waybar.empty #window,
 ---------------------------- */
 
 #mpris {
+  background-color: @base;
+  border-radius: 0px;
+  border: 1px solid alpha(@text, 0.15);
   color: @love;
 }
 
@@ -213,10 +284,10 @@ window#waybar.empty #window,
 
 tooltip {
   opacity: 1;
-  padding: 8px; /* Increased padding */
+  padding: 4px;
   background-color: @base;
   border: 1px solid alpha(@text, 0.15);
-  border-radius: 0px; /* Sharp corners */
+  border-radius: 8px;
   font-size: 12px;
 }
 
@@ -249,20 +320,30 @@ tooltip label {
 }
 
 /* ----------------------------
-   Temperature states
+   Temperature states (CPU)
 ---------------------------- */
 
-#custom-temperature_cpu,
+#custom-temperature_cpu {
+  color: #6bbf7a;
+}
+
+#custom-temperature_cpu.warning {
+  color: #e5c07b;
+}
+
+#custom-temperature_cpu.critical {
+  color: #e06c75;
+}
+
+/* Optional: GPU temperature states (matches your temperature#gpu module) */
 #custom-temperature_gpu {
   color: #6bbf7a;
 }
 
-#custom-temperature_cpu.warning,
 #custom-temperature_gpu.warning {
   color: #e5c07b;
 }
 
-#custom-temperature_cpu.critical,
 #custom-temperature_gpu.critical {
   color: #e06c75;
 }
