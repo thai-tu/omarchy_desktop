@@ -56,8 +56,8 @@
       "pulseaudio#output",
       "pulseaudio#input",
       "network",
-      "temperature#gpu",
-      "temperature",
+      "custom/temperature_gpu",
+      "custom/temperature_cpu",
       "memory",
       "cpu"
     ]
@@ -256,23 +256,19 @@
     // "ignored-players": ["firefox"]
   },
 
-  "temperature": {
+  "custom/temperature_cpu": {
+    "exec": "$HOME/.config/waybar/scripts/get_temp.sh cpu",
+    "return-type": "json",
+    "format": "{}",
     "interval": 5,
-    // hwmon5 = k10temp (AMD CPU) - may change on kernel updates
-    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
-    "format": " CPU {temperatureC}°C",
-    "warning-threshold": 75,
-    "critical-threshold": 90,
     "on-click": "xdg-terminal-exec --app-id=com.omarchy.Btop --title='Btop' -e btop"
   },
 
-  "temperature#gpu": {
+  "custom/temperature_gpu": {
+    "exec": "$HOME/.config/waybar/scripts/get_temp.sh gpu",
+    "return-type": "json",
+    "format": "{}",
     "interval": 5,
-    // hwmon4 = amdgpu - may change on kernel updates
-    "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
-    "format": "󰢮  GPU {temperatureC}°C",
-    "warning-threshold": 80,
-    "critical-threshold": 95,
     "on-click": "xdg-terminal-exec --app-id=com.omarchy.Btop --title='Btop' -e btop"
   }
 }

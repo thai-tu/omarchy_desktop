@@ -91,8 +91,8 @@ window#waybar.empty #window {
 #tray,
 #window,
 #mpris,
-#temperature,
-#temperature-gpu,
+#custom-temperature_cpu,
+#custom-temperature_gpu,
 #cpu,
 #clock,
 #battery,
@@ -250,7 +250,7 @@ window#waybar.empty #window {
 #custom-updates_all {
   padding-right: 9px;
   padding-left: 12px;
-  color:@text;
+  color: @text;
   border-left: 1px solid alpha(@text, 0.15);
 }
 
@@ -269,7 +269,7 @@ window#waybar.empty #window {
    Tray attention + visibility
 ---------------------------- */
 
-#tray > .needs-attention {
+#tray>.needs-attention {
   -gtk-icon-effect: highlight;
   background-color: transparent;
 }
@@ -323,27 +323,27 @@ tooltip label {
    Temperature states (CPU)
 ---------------------------- */
 
-#temperature {
+#custom-temperature_cpu {
   color: #6bbf7a;
 }
 
-#temperature.warning {
+#custom-temperature_cpu.warning {
   color: #e5c07b;
 }
 
-#temperature.critical {
+#custom-temperature_cpu.critical {
   color: #e06c75;
 }
 
 /* Optional: GPU temperature states (matches your temperature#gpu module) */
-#temperature-gpu {
+#custom-temperature_gpu {
   color: #6bbf7a;
 }
 
-#temperature-gpu.warning {
+#custom-temperature_gpu.warning {
   color: #e5c07b;
 }
 
-#temperature-gpu.critical {
+#custom-temperature_gpu.critical {
   color: #e06c75;
 }
