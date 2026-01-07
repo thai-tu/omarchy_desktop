@@ -128,18 +128,27 @@ window#waybar.empty #window,
 #custom-omarchy {
   color: @gold;
   font-size: 14px;
+  border-right: 1px solid alpha(@text, 0.15);
+  border-radius: 0;
 }
 
 #clock {
   color: @gold;
+  border-radius: 0;
+  border-right: 1px solid alpha(@text, 0.15);
 }
 
 #bluetooth {
   color: @foam;
+  padding-right: 12px;
+  border-radius: 0;
+  border-right: 1px solid alpha(@text, 0.15);
 }
 
 #memory {
   color: @gold;
+  border-radius: 0;
+  border-left: 1px solid alpha(@text, 0.15);
 }
 
 #cpu {
@@ -156,6 +165,7 @@ window#waybar.empty #window,
 
 #network {
   color: @rose;
+  border-right: 1px solid alpha(@text, 0.15);
 }
 
 #pulseaudio,
@@ -175,15 +185,15 @@ window#waybar.empty #window,
 }
 
 #custom-updates_all {
-  padding-right: 9px;
+  padding-right: 8px;
   padding-left: 12px;
   color: @text;
+  border-left: 1px solid alpha(@text, 0.15);
 }
 
-/* Specific padding for bluetooth module */
-#bluetooth {
-  padding-left: 6px;
-  padding-right: 9px;
+#custom-update {
+  padding-left: 4px;
+  padding-right: 12px;
 }
 
 /* ----------------------------
