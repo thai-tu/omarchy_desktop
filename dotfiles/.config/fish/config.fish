@@ -4,3 +4,6 @@ if status is-interactive
     starship init fish | source
 end
 export PATH="$HOME/.local/bin:$PATH"
+
+# opencode
+fish_add_path /home/bao_desktop/.opencode/bin

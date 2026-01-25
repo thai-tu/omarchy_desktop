@@ -88,9 +88,8 @@ window#waybar.empty #window,
 #custom-weather,
 #custom-update,
 #idle_inhibitor,
-#custom-omarchy,
-#custom-screenrecording-indicator,
-#custom-updates_all {
+  #custom-omarchy,
+  #custom-updates_all {
   margin: 1px 3px;
   padding: 0px 8px; /* Consistent horizontal padding */
 }
@@ -140,7 +139,7 @@ window#waybar.empty #window,
 
 #bluetooth {
   color: @foam;
-  padding-right: 12px;
+  padding-right: 13px;
   border-radius: 0;
   border-right: 1px solid alpha(@text, 0.15);
 }
@@ -196,6 +195,10 @@ window#waybar.empty #window,
   padding-right: 12px;
 }
 
+#idle_inhibitor {
+  padding-right: 10px;
+}
+
 /* ----------------------------
    MPRIS
 ---------------------------- */
@@ -240,6 +243,12 @@ tooltip label {
 ---------------------------- */
 
 #custom-screenrecording-indicator {
+  background-color: @base;
+  border: 1px solid alpha(@text, 0.15);
+  border-radius: 0px;
+  margin-right: 4px;
+  padding-right: 12px;
+  padding-left: 9px;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -275,4 +284,12 @@ tooltip label {
 #custom-temperature_cpu.critical,
 #custom-temperature_gpu.critical {
   color: #e06c75;
+}
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
 }
